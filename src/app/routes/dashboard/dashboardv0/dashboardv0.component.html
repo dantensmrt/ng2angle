@@ -1,0 +1,214 @@
+<div class="content-heading">
+    Dashboard 0
+    <small>{{ 'dashboard.WELCOME' | translate }} !</small>
+</div>
+<div class="row">
+    <!-- START dashboard main content-->
+    <div class="col-lg-9">
+        <div class="row">
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="pull-right label bg-primary-light">{{notifications.length}}</div>
+                        <div class="panel-title">NOTIFICATIONS</div>
+                    </div>
+                    <!-- START list group-->
+                    <scrollable class="list-group" height="270">
+                        <!-- START list group item-->
+                        <span *ngFor="let item of notifications">
+                            <a class="list-group-item">
+                                <div class="media-box">
+                                    <div class="pull-left">
+                                        <img class="media-box-object img-square thumb64" [src]="item.image" alt="Image" />
+                                    </div>
+                                    <div class="media-box-body clearfix">
+                                        <p>
+                                            <strong class="media-box-heading text-primary">{{item.name}}
+                                                <small class="text-muted">{{item.address}}</small>
+                                            </strong>
+                                        </p>
+                                        <div class="list-group mb0">
+                                            <a *ngFor="let row of item.alerts" class="list-group-item bt0">
+                                                <span class="label label-purple pull-right">{{row.time}}</span>
+                                                <em class="fa fa-fw {{row.icon}} mr"></em>{{row.text}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </span>
+                        <!-- END list group item-->
+                    </scrollable>
+                    <!-- END list group-->
+                    <!-- START panel footer-->
+                    <div class="panel-footer clearfix">
+                        <div class="input-group">
+                            <input class="form-control input-sm" type="text" placeholder="Search message .." />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-sm" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- END panel-footer-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END dashboard main content-->
+    <!-- START dashboard sidebar-->
+    <aside class="col-lg-3">
+        <!-- START loader widget-->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="text-muted pull-right" href="">
+                    <em class="fa fa-arrow-right"></em>
+                </a>
+                <div class="text-info">Average Monthly Uploads</div>
+                <div class="text-center pv-xl">
+                    <div class="easypie-chart easypie-chart-lg" easypiechart [options]="pieOptions" [percent]="easyPiePercent">
+                        <span>{{easyPiePercent}}%</span>
+                    </div>
+                </div>
+                <div class="text-center" [sparkline]="sparkOptions1" values="5,4,8,7,8,5,4,6,5,5,9,4,6,3,4,7,5,4,7"></div>
+            </div>
+            <div class="panel-footer">
+                <p class="text-muted">
+                    <em class="fa fa-upload fa-fw"></em>
+                    <span>This Month</span>
+                    <span class="text-dark">1000 Gb</span>
+                </p>
+            </div>
+        </div>
+        <!-- END loader widget-->
+        <!-- START messages and activity-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">Latest activities</div>
+            </div>
+            <!-- START list group-->
+            <div class="list-group">
+                <!-- START list group item-->
+                <div class="list-group-item">
+                    <div class="media-box">
+                        <div class="pull-left">
+                            <span class="fa-stack">
+                                <em class="fa fa-circle fa-stack-2x text-purple"></em>
+                                <em class="fa fa-cloud-upload fa-stack-1x fa-inverse text-white"></em>
+                            </span>
+                        </div>
+                        <div class="media-box-body clearfix">
+                            <small class="text-muted pull-right ml">15m</small>
+                            <div class="media-box-heading">
+                                <a class="text-purple m0" href="">NEW FILE</a>
+                            </div>
+                            <p class="m0">
+                                <small>
+                                    <a href="">Bootstrap.xls</a>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END list group item-->
+                <!-- START list group item-->
+                <div class="list-group-item">
+                    <div class="media-box">
+                        <div class="pull-left">
+                            <span class="fa-stack">
+                                <em class="fa fa-circle fa-stack-2x text-info"></em>
+                                <em class="fa fa-file-text-o fa-stack-1x fa-inverse text-white"></em>
+                            </span>
+                        </div>
+                        <div class="media-box-body clearfix">
+                            <small class="text-muted pull-right ml">2h</small>
+                            <div class="media-box-heading">
+                                <a class="text-info m0" href="">NEW DOCUMENT</a>
+                            </div>
+                            <p class="m0">
+                                <small>
+                                    <a href="">Bootstrap.doc</a>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END list group item-->
+                <!-- START list group item-->
+                <div class="list-group-item">
+                    <div class="media-box">
+                        <div class="pull-left">
+                            <span class="fa-stack">
+                                <em class="fa fa-circle fa-stack-2x text-danger"></em>
+                                <em class="fa fa-exclamation fa-stack-1x fa-inverse text-white"></em>
+                            </span>
+                        </div>
+                        <div class="media-box-body clearfix">
+                            <small class="text-muted pull-right ml">5h</small>
+                            <div class="media-box-heading">
+                                <a class="text-danger m0" href="">BROADCAST</a>
+                            </div>
+                            <p class="m0">
+                                <a href="">Read</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END list group item-->
+                <!-- START list group item-->
+                <div class="list-group-item">
+                    <div class="media-box">
+                        <div class="pull-left">
+                            <span class="fa-stack">
+                                <em class="fa fa-circle fa-stack-2x text-success"></em>
+                                <em class="fa fa-clock-o fa-stack-1x fa-inverse text-white"></em>
+                            </span>
+                        </div>
+                        <div class="media-box-body clearfix">
+                            <small class="text-muted pull-right ml">15h</small>
+                            <div class="media-box-heading">
+                                <a class="text-success m0" href="">NEW MEETING</a>
+                            </div>
+                            <p class="m0">
+                                <small>On
+                                    <em>10/12/2015 09:00 am</em>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END list group item-->
+                <!-- START list group item-->
+                <div class="list-group-item">
+                    <div class="media-box">
+                        <div class="pull-left">
+                            <span class="fa-stack">
+                                <em class="fa fa-circle fa-stack-2x text-warning"></em>
+                                <em class="fa fa-tasks fa-stack-1x fa-inverse text-white"></em>
+                            </span>
+                        </div>
+                        <div class="media-box-body clearfix">
+                            <small class="text-muted pull-right ml">1w</small>
+                            <div class="media-box-heading">
+                                <a class="text-warning m0" href="">TASKS COMPLETION</a>
+                            </div>
+                            <progressbar class="progress-xs m0" value="22" type="warning">22%</progressbar>
+                        </div>
+                    </div>
+                </div>
+                <!-- END list group item-->
+            </div>
+            <!-- END list group-->
+            <!-- START panel footer-->
+            <div class="panel-footer clearfix">
+                <a class="pull-left" href="">
+                    <small>Load more</small>
+                </a>
+            </div>
+            <!-- END panel-footer-->
+        </div>
+        <!-- END messages and activity-->
+    </aside>
+    <!-- END dashboard sidebar-->
+</div>
