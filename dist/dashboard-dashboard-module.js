@@ -203,6 +203,18 @@ var Dashboardv0Component = /** @class */ (function () {
             _this.notifications = _this.getData.notifications;
             // Assign the buildings array of metrics from the response
             _this.buildings = _this.getData.buildings;
+            // Sort the array of buildings by name
+            _this.buildings.sort(function (item1, item2) {
+                if (item1.name < item2.name) {
+                    return -1;
+                }
+                else if (item1.name > item2.name) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            });
         });
     }
     Dashboardv0Component.prototype.ngOnInit = function () {
