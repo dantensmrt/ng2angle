@@ -14,7 +14,7 @@ export const routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'dashboard/v0', pathMatch: 'full' },
             { path: 'home', loadChildren: './home/home.module#HomeModule' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
@@ -39,6 +39,6 @@ export const routes = [
     { path: '500', component: Error500Component },
 
     // Not found
-    { path: '**', redirectTo: 'home' }
+    { path: '**', redirectTo: 'dashboard/v0' }
 
 ];

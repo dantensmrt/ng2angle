@@ -7,26 +7,8 @@ const Home = {
 
 const Dashboard = {
     text: 'Dashboard',
-    link: '/dashboard',
-    icon: 'icon-speedometer',
-    submenu: [
-        {
-            text: 'Dashbord v0',
-            link: '/dashboard/v0'
-        },
-        {
-            text: 'Dashbord v1',
-            link: '/dashboard/v1'
-        },
-        {
-            text: 'Dashbord v2',
-            link: '/dashboard/v2'
-        },
-        {
-            text: 'Dashbord v3',
-            link: '/dashboard/v3'
-        }
-    ]
+    link: '/dashboard/v0',
+    icon: 'icon-speedometer'
 };
 
 const Widgets = {
@@ -401,18 +383,5 @@ const headingMore = {
 
 export const menu = [
     headingMain,
-    Home,
-    Dashboard,
-    Widgets,
-    headingComponents,
-    Elements,
-    Forms,
-    Charts,
-    Tables,
-    Maps,
-    headingMore,
-    Pages,
-    Blog,
-    Ecommerce,
-    Extras
+    Dashboard
 ];
