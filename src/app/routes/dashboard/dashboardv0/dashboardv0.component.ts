@@ -12,6 +12,7 @@ export class Dashboardv0Component implements OnInit {
 
     getData: any = {};
     notifications: any = [];
+    buildings: any = [];
 
     sparkValues = [1, 3, 4, 7, 5, 9, 4, 4, 7, 5, 9, 6, 4];
 
@@ -102,6 +103,8 @@ export class Dashboardv0Component implements OnInit {
             this.getData = data;
             // Assign the alert array from the response to a data object (for display)
             this.notifications = this.getData.notifications;
+            // Assign the buildings array of metrics from the response
+            this.buildings = this.getData.buildings;
         });
 
     }

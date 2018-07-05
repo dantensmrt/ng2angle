@@ -36,5 +36,79 @@
                 }
             ]
         }
+    ],
+    "buildings": [
+        {
+            "name": "222 N. LaSalle",
+            "address": "222 N. LaSalle Street, Chicago, IL",
+            "metrics": [
+                {
+                    "color": "bg-warning-light",
+                    "icon": "fa-building",
+                    "value": "87%",
+                    "title": "Occupancy"
+                },
+                {
+                    "color": "bg-green-light",
+                    "icon": "fa-money",
+                    "value": "$98,125",
+                    "title": "Monthly Cash Flow"
+                },
+                {
+                    "color": "bg-purple-light",
+                    "icon": "fa-pencil-square-o",
+                    "value": "7",
+                    "title": "Pending Leases"
+                }
+            ]
+        },
+        {
+            "name": "Flat Iron Building",
+            "address": "175 5th Avenue, New York, NY",
+            "metrics": [
+                {
+                    "color": "bg-warning-light",
+                    "icon": "fa-building",
+                    "value": "95%",
+                    "title": "Occupancy"
+                },
+                {
+                    "color": "bg-green-light",
+                    "icon": "fa-money",
+                    "value": "$678,900",
+                    "title": "Monthly Cash Flow"
+                },
+                {
+                    "color": "bg-purple-light",
+                    "icon": "fa-pencil-square-o",
+                    "value": "18",
+                    "title": "Pending Leases"
+                }
+            ]
+        },
+        {
+            "name": "Terminal Tower",
+            "address": "50 Public Square, Cleveland, OH",
+            "metrics": [
+                {
+                    "color": "bg-warning-light",
+                    "icon": "fa-building",
+                    "value": "55%",
+                    "title": "Occupancy"
+                },
+                {
+                    "color": "bg-green-light",
+                    "icon": "fa-money",
+                    "value": "$450,675",
+                    "title": "Monthly Cash Flow"
+                },
+                {
+                    "color": "bg-purple-light",
+                    "icon": "fa-pencil-square-o",
+                    "value": "32",
+                    "title": "Pending Leases"
+                }
+            ]
+        }
     ]
 }
