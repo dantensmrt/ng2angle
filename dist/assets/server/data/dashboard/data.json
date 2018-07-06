@@ -51,7 +51,7 @@
                 {
                     "color": "bg-green-light",
                     "icon": "fa-money",
-                    "value": "$98,125",
+                    "value": "$600,125",
                     "title": "Monthly Cash Flow"
                 },
                 {
@@ -60,7 +60,44 @@
                     "value": "7",
                     "title": "Pending Leases"
                 }
-            ]
+            ],
+            "charts": {
+                "cashflow": {
+                    "display": true,
+                    "data": [
+                        {
+                            "label": "Cash ($ 000)",
+                            "color": "#aad874",
+                            "data": [
+                                [
+                                    "Jan",
+                                    550
+                                ],
+                                [
+                                    "Feb",
+                                    560
+                                ],
+                                [
+                                    "Mar",
+                                    570
+                                ],
+                                [
+                                    "Apr",
+                                    580
+                                ],
+                                [
+                                    "May",
+                                    590
+                                ],
+                                [
+                                    "Jun",
+                                    600
+                                ]
+                            ]
+                        }
+                    ]
+                }
+            }
         },
         {
             "name": "Terminal Tower",
@@ -84,7 +121,44 @@
                     "value": "32",
                     "title": "Pending Leases"
                 }
-            ]
+            ],
+            "charts": {
+                "cashflow": {
+                    "display": true,
+                    "data": [
+                        {
+                            "label": "Cash ($ 000)",
+                            "color": "#aad874",
+                            "data": [
+                                [
+                                    "Jan",
+                                    540
+                                ],
+                                [
+                                    "Feb",
+                                    540
+                                ],
+                                [
+                                    "Mar",
+                                    490
+                                ],
+                                [
+                                    "Apr",
+                                    475
+                                ],
+                                [
+                                    "May",
+                                    460
+                                ],
+                                [
+                                    "Jun",
+                                    450
+                                ]
+                            ]
+                        }
+                    ]
+                }
+            }
         },
         {
             "name": "Flat Iron Building",
@@ -108,7 +182,44 @@
                     "value": "18",
                     "title": "Pending Leases"
                 }
-            ]
+            ],
+            "charts": {
+                "cashflow": {
+                    "display": true,
+                    "data": [
+                        {
+                            "label": "Cash ($ 000)",
+                            "color": "#aad874",
+                            "data": [
+                                [
+                                    "Jan",
+                                    550
+                                ],
+                                [
+                                    "Feb",
+                                    586
+                                ],
+                                [
+                                    "Mar",
+                                    640
+                                ],
+                                [
+                                    "Apr",
+                                    663
+                                ],
+                                [
+                                    "May",
+                                    670
+                                ],
+                                [
+                                    "Jun",
+                                    678
+                                ]
+                            ]
+                        }
+                    ]
+                }
+            }
         }
     ]
 }

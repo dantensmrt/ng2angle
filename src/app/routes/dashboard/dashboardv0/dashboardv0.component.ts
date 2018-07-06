@@ -10,64 +10,16 @@ import { ColorsService } from '../../../shared/colors/colors.service';
 })
 export class Dashboardv0Component implements OnInit {
 
-    getData: any = {};
-    notifications: any = [];
-    buildings: any = [];
-
-    sparkValues = [1, 3, 4, 7, 5, 9, 4, 4, 7, 5, 9, 6, 4];
-
-    easyPiePercent: number = 70;
-    pieOptions = {
-        animate: {
-            duration: 800,
-            enabled: true
-        },
-        barColor: this.colors.byName('info'),
-        trackColor: 'rgba(200,200,200,0.4)',
-        scaleColor: false,
-        lineWidth: 10,
-        lineCap: 'round',
-        size: 145
-    };
-
-    sparkOptions1 = {
-        barColor: this.colors.byName('info'),
-        height: 30,
-        barWidth: '5',
-        barSpacing: '2'
-    };
-
-    sparkOptions2 = {
-        type: 'line',
-        height: 80,
-        width: '100%',
-        lineWidth: 2,
-        lineColor: this.colors.byName('purple'),
-        spotColor: '#888',
-        minSpotColor: this.colors.byName('purple'),
-        maxSpotColor: this.colors.byName('purple'),
-        fillColor: '',
-        highlightLineColor: '#fff',
-        spotRadius: 3,
-        resize: true
-    };
-
-    splineHeight = 280;
-    splineData: any;
-    splineOptions = {
+    // Chart options settings
+    areaOptionsCash = {
         series: {
             lines: {
-                show: false
+                show: true,
+                fill: 0.8
             },
             points: {
                 show: true,
                 radius: 4
-            },
-            splines: {
-                show: true,
-                tension: 0.4,
-                lineWidth: 1,
-                fill: 0.5
             }
         },
         grid: {
@@ -78,7 +30,7 @@ export class Dashboardv0Component implements OnInit {
         },
         tooltip: true,
         tooltipOpts: {
-            content: (label, x, y) => { return x + ' : ' + y; }
+            content: function (label, x, y) { return x + ' : ' + y; }
         },
         xaxis: {
             tickColor: '#fcfcfc',
@@ -86,18 +38,20 @@ export class Dashboardv0Component implements OnInit {
         },
         yaxis: {
             min: 0,
-            max: 150, // optional: use it for a clear represetation
             tickColor: '#eee',
             // position: ($scope.app.layout.isRTL ? 'right' : 'left'),
-            tickFormatter: (v) => {
-                return v/* + ' visitors'*/;
+            tickFormatter: function (v) {
+                return v + ' $k';
             }
         },
         shadowSize: 0
     };
 
+    getData: any = {};
+    notifications: any = [];
+    buildings: any = [];
+
     constructor(public colors: ColorsService, public http: HttpClient) {
-        http.get('assets/server/chart/spline.json').subscribe(data => this.splineData = data);
         http.get('assets/server/data/dashboard/data.json').subscribe(data => {
             // Assign response data to a data object
             this.getData = data;
@@ -116,15 +70,45 @@ export class Dashboardv0Component implements OnInit {
                     return 0;
                 }
             });
-        });
 
+            for (let i = 0; i < this.buildings.length; i++) {
+                if (this.buildings[i].charts.cashflow.display) {
+                    // Set cash flow chart options for this
+                    const config = this.areaOptionsCash;
+
+                    // Set the minimum Y axis value given this chart data
+                    config.yaxis.min = this.calcChartMin(this.buildings[i].charts.cashflow.data[0].data);
+
+                    this.buildings[i].charts.cashflow.options = config;
+                }
+            }
+        });
+    }
+
+    calcChartMin(inData: Array<any>): number {
+        let lowVal: number;
+        let retVal: number;
+
+        // Fetch the lowest value
+        for (let j = 0; j < inData.length; j++) {
+            const element = inData[j][1];
+
+            if (j === 0) {
+                lowVal = element;
+            }
+
+            if (element < lowVal) {
+                lowVal = element;
+            }
+        }
+
+        retVal = Math.round(lowVal * .95);
+
+        console.log('DEBUG: returning with ' + retVal);
+        return retVal;
     }
 
     ngOnInit() {
-    }
-
-    colorByName(name) {
-        return this.colors.byName(name);
     }
 
 }

@@ -71,7 +71,7 @@ var DashboardModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-heading\">\r\n    TenantSmart\r\n</div>\r\n<div class=\"row\">\r\n    <!-- START dashboard main content-->\r\n    <div class=\"col-lg-7\">\r\n        <div *ngFor=\"let loc of buildings\">\r\n            <div class=\"panel b\">\r\n                <div class=\"panel-heading\">\r\n                    <h4>{{loc.name | uppercase}}</h4>\r\n                    <strong>{{loc.address}}</strong>\r\n                    <button class=\"btn btn-xs btn-default pull-right\">Manage</button>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <div class=\"col-lg-4 col-md-6\" *ngFor=\"let val of loc.metrics\">\r\n                        <!-- START panel-->\r\n                        <div class=\"panel {{val.color}}\">\r\n                            <div class=\"panel-heading\">\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-3\">\r\n                                        <em class=\"fa {{val.icon}} fa-3x\"></em>\r\n                                    </div>\r\n                                    <div class=\"col-xs-9 text-right\">\r\n                                        <div class=\"text-md\">{{val.value}}</div>\r\n                                        <p class=\"m0\">{{val.title}}</p>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <a class=\"panel-footer bg-gray-dark bt0 clearfix btn-block\">\r\n                                <span class=\"pull-left\">Details</span>\r\n                                <span class=\"pull-right\">\r\n                                    <em class=\"fa fa-chevron-circle-right\"></em>\r\n                                </span>\r\n                            </a>\r\n                        </div>\r\n                        <!-- END panel-->\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n    <!-- END dashboard main content-->\r\n    <!-- START dashboard sidebar-->\r\n    <aside class=\"col-lg-5\">\r\n        <div class=\"row\">\r\n            <div>\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\">\r\n                        <div class=\"pull-right label bg-primary-light\">{{notifications.length}}</div>\r\n                        <div class=\"panel-title\">NOTIFICATIONS</div>\r\n                    </div>\r\n                    <!-- START list group-->\r\n                    <scrollable class=\"list-group\" height=\"360\">\r\n                        <!-- START list group item-->\r\n                        <span *ngFor=\"let item of notifications\">\r\n                            <a class=\"list-group-item\">\r\n                                <div class=\"media-box\">\r\n                                    <div class=\"pull-left\">\r\n                                        <img class=\"media-box-object img-square thumb64\" [src]=\"item.image\" alt=\"Image\" />\r\n                                    </div>\r\n                                    <div class=\"media-box-body clearfix\">\r\n                                        <p>\r\n                                            <strong class=\"media-box-heading text-primary\">{{item.name}}\r\n                                                <small class=\"text-muted\">{{item.address}}</small>\r\n                                            </strong>\r\n                                        </p>\r\n                                        <div class=\"list-group mb0\">\r\n                                            <a *ngFor=\"let row of item.alerts\" class=\"list-group-item bt0\">\r\n                                                <span class=\"label label-purple pull-right\">{{row.time}}</span>\r\n                                                <em class=\"fa fa-fw {{row.icon}} mr\"></em>{{row.text}}</a>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </a>\r\n\r\n                        </span>\r\n                        <!-- END list group item-->\r\n                    </scrollable>\r\n                    <!-- END list group-->\r\n                    <!-- START panel footer-->\r\n                    <div class=\"panel-footer clearfix\">\r\n                        <div class=\"input-group\">\r\n                            <input class=\"form-control input-sm\" type=\"text\" placeholder=\"Search notifications...\" />\r\n                            <span class=\"input-group-btn\">\r\n                                <button class=\"btn btn-default btn-sm\" type=\"submit\">\r\n                                    <i class=\"fa fa-search\"></i>\r\n                                </button>\r\n                            </span>\r\n                        </div>\r\n                    </div>\r\n                    <!-- END panel-footer-->\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n    <!-- END dashboard sidebar-->\r\n</div>"
+module.exports = "<div class=\"content-heading\">\r\n    TenantSmart\r\n</div>\r\n<div class=\"row\">\r\n    <!-- START dashboard main content-->\r\n    <div class=\"col-lg-7\">\r\n        <div *ngFor=\"let loc of buildings\">\r\n            <div class=\"panel b\">\r\n                <div class=\"panel-heading\">\r\n                    <button class=\"btn btn-xs btn-default pull-right\">Manage</button>\r\n                    <h4>{{loc.name | uppercase}}\r\n                        <small>{{loc.address}}</small>\r\n                    </h4>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <div class=\"col-lg-4 col-md-6\" *ngFor=\"let val of loc.metrics\">\r\n                        <!-- START panel-->\r\n                        <div class=\"panel {{val.color}}\">\r\n                            <div class=\"panel-heading\">\r\n                                <div class=\"row\">\r\n                                    <div class=\"col-xs-3\">\r\n                                        <em class=\"fa {{val.icon}} fa-3x\"></em>\r\n                                    </div>\r\n                                    <div class=\"col-xs-9 text-right\">\r\n                                        <div class=\"text-md\">{{val.value}}</div>\r\n                                        <p class=\"m0\">{{val.title}}</p>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <a class=\"panel-footer bg-gray-dark bt0 clearfix btn-block\">\r\n                                <span class=\"pull-left\">Details</span>\r\n                                <span class=\"pull-right\">\r\n                                    <em class=\"fa fa-chevron-circle-right\"></em>\r\n                                </span>\r\n                            </a>\r\n                        </div>\r\n                        <!-- END panel-->\r\n                    </div>\r\n                    <div class=\"col-lg-12\" *ngIf=\"loc.charts.cashflow.display\">\r\n                        <div class=\"panel panel-default\">\r\n                            <div class=\"panel-heading\">\r\n                                <div class=\"panel-title\">Monthly Cash Flow</div>\r\n                            </div>\r\n                            <div class=\"panel-wrapper\">\r\n                                <div class=\"panel-body\">\r\n                                    <div flot [dataset]=\"loc.charts.cashflow.data\" [options]=\"loc.charts.cashflow.options\" height=\"300\" (ready)=\"ready($event)\"></div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n    <!-- END dashboard main content-->\r\n    <!-- START dashboard sidebar-->\r\n    <aside class=\"col-lg-5\">\r\n        <div class=\"row\">\r\n            <div>\r\n                <div class=\"panel panel-default\">\r\n                    <div class=\"panel-heading\">\r\n                        <div class=\"pull-right label bg-primary-light\">{{notifications.length}}</div>\r\n                        <div class=\"panel-title\">NOTIFICATIONS</div>\r\n                    </div>\r\n                    <!-- START list group-->\r\n                    <scrollable class=\"list-group\" height=\"360\">\r\n                        <!-- START list group item-->\r\n                        <span *ngFor=\"let item of notifications\">\r\n                            <a class=\"list-group-item\">\r\n                                <div class=\"media-box\">\r\n                                    <div class=\"pull-left\">\r\n                                        <img class=\"media-box-object img-square thumb64\" [src]=\"item.image\" alt=\"Image\" />\r\n                                    </div>\r\n                                    <div class=\"media-box-body clearfix\">\r\n                                        <p>\r\n                                            <strong class=\"media-box-heading text-primary\">{{item.name}}\r\n                                                <small class=\"text-muted\">{{item.address}}</small>\r\n                                            </strong>\r\n                                        </p>\r\n                                        <div class=\"list-group mb0\">\r\n                                            <a *ngFor=\"let row of item.alerts\" class=\"list-group-item bt0\">\r\n                                                <span class=\"label label-purple pull-right\">{{row.time}}</span>\r\n                                                <em class=\"fa fa-fw {{row.icon}} mr\"></em>{{row.text}}</a>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </a>\r\n\r\n                        </span>\r\n                        <!-- END list group item-->\r\n                    </scrollable>\r\n                    <!-- END list group-->\r\n                    <!-- START panel footer-->\r\n                    <div class=\"panel-footer clearfix\">\r\n                        <div class=\"input-group\">\r\n                            <input class=\"form-control input-sm\" type=\"text\" placeholder=\"Search notifications...\" />\r\n                            <span class=\"input-group-btn\">\r\n                                <button class=\"btn btn-default btn-sm\" type=\"submit\">\r\n                                    <i class=\"fa fa-search\"></i>\r\n                                </button>\r\n                            </span>\r\n                        </div>\r\n                    </div>\r\n                    <!-- END panel-footer-->\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n    <!-- END dashboard sidebar-->\r\n</div>"
 
 /***/ }),
 
@@ -116,58 +116,16 @@ var Dashboardv0Component = /** @class */ (function () {
         var _this = this;
         this.colors = colors;
         this.http = http;
-        this.getData = {};
-        this.notifications = [];
-        this.buildings = [];
-        this.sparkValues = [1, 3, 4, 7, 5, 9, 4, 4, 7, 5, 9, 6, 4];
-        this.easyPiePercent = 70;
-        this.pieOptions = {
-            animate: {
-                duration: 800,
-                enabled: true
-            },
-            barColor: this.colors.byName('info'),
-            trackColor: 'rgba(200,200,200,0.4)',
-            scaleColor: false,
-            lineWidth: 10,
-            lineCap: 'round',
-            size: 145
-        };
-        this.sparkOptions1 = {
-            barColor: this.colors.byName('info'),
-            height: 30,
-            barWidth: '5',
-            barSpacing: '2'
-        };
-        this.sparkOptions2 = {
-            type: 'line',
-            height: 80,
-            width: '100%',
-            lineWidth: 2,
-            lineColor: this.colors.byName('purple'),
-            spotColor: '#888',
-            minSpotColor: this.colors.byName('purple'),
-            maxSpotColor: this.colors.byName('purple'),
-            fillColor: '',
-            highlightLineColor: '#fff',
-            spotRadius: 3,
-            resize: true
-        };
-        this.splineHeight = 280;
-        this.splineOptions = {
+        // Chart options settings
+        this.areaOptionsCash = {
             series: {
                 lines: {
-                    show: false
+                    show: true,
+                    fill: 0.8
                 },
                 points: {
                     show: true,
                     radius: 4
-                },
-                splines: {
-                    show: true,
-                    tension: 0.4,
-                    lineWidth: 1,
-                    fill: 0.5
                 }
             },
             grid: {
@@ -186,16 +144,17 @@ var Dashboardv0Component = /** @class */ (function () {
             },
             yaxis: {
                 min: 0,
-                max: 150,
                 tickColor: '#eee',
                 // position: ($scope.app.layout.isRTL ? 'right' : 'left'),
                 tickFormatter: function (v) {
-                    return v /* + ' visitors'*/;
+                    return v + ' $k';
                 }
             },
             shadowSize: 0
         };
-        http.get('assets/server/chart/spline.json').subscribe(function (data) { return _this.splineData = data; });
+        this.getData = {};
+        this.notifications = [];
+        this.buildings = [];
         http.get('assets/server/data/dashboard/data.json').subscribe(function (data) {
             // Assign response data to a data object
             _this.getData = data;
@@ -215,12 +174,35 @@ var Dashboardv0Component = /** @class */ (function () {
                     return 0;
                 }
             });
+            for (var i = 0; i < _this.buildings.length; i++) {
+                if (_this.buildings[i].charts.cashflow.display) {
+                    // Set cash flow chart options for this
+                    var config = _this.areaOptionsCash;
+                    // Set the minimum Y axis value given this chart data
+                    config.yaxis.min = _this.calcChartMin(_this.buildings[i].charts.cashflow.data[0].data);
+                    _this.buildings[i].charts.cashflow.options = config;
+                }
+            }
         });
     }
-    Dashboardv0Component.prototype.ngOnInit = function () {
+    Dashboardv0Component.prototype.calcChartMin = function (inData) {
+        var lowVal;
+        var retVal;
+        // Fetch the lowest value
+        for (var j = 0; j < inData.length; j++) {
+            var element = inData[j][1];
+            if (j === 0) {
+                lowVal = element;
+            }
+            if (element < lowVal) {
+                lowVal = element;
+            }
+        }
+        retVal = Math.round(lowVal * .95);
+        console.log('DEBUG: returning with ' + retVal);
+        return retVal;
     };
-    Dashboardv0Component.prototype.colorByName = function (name) {
-        return this.colors.byName(name);
+    Dashboardv0Component.prototype.ngOnInit = function () {
     };
     Dashboardv0Component = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
